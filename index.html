@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="cover-container">
+            <img id="cover" src="" alt="Album Cover">
+        </div>
+        <div class="song-info">
+            <div id="album-name" class="album-name">Album Name</div>
+            <div id="song-name" class="song-name">Song Title</div>
+            <div id="artist-name" class="artist-name">Artist</div>
+        </div>
+        <div class="controls-container">
+            <div class="buttons-wrapper">
+                <div class="buttons-container">
+                    <button id="unlike-button" style="display: none;"><i class="fas fa-heart"></i></button>
+                    <button id="like-button"><i class="far fa-heart"></i></button>
+                    <button id="previous-button"><i class="fas fa-backward"></i></button>
+                    <button id="pause-button"><i class="fas fa-pause"></i></button>
+                    <button id="play-button" style="display: none;"><i class="fas fa-play"></i></button>
+                    <button id="next-button"><i class="fas fa-forward"></i></button>
+                    <button id="mute-button"><i class="fas fa-volume-up"></i></button>
+                    <button id="unmute-button" style="display: none;"><i class="fas fa-volume-mute"></i></button>
+                </div>
+                <div class="buttons-background"></div>
+            </div>
+            <div class="progress-container">
+                <progress id="progress-bar" value="0" max="100"></progress>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
