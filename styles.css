@@ -2,8 +2,8 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #4F374F; /* Dunkelgraue Hintergrundfarbe */
-  color: #fff; /* Weißer Text */
+  background-color: #4F374F;
+  color: #fff;
 }
 
 .container {
@@ -16,11 +16,11 @@ body {
 
 .cover-container {
   margin-right: 100px;
-  width: 630px; /* Breite des Cover-Containers */
-  height: 600px; /* Höhe des Cover-Containers */
-  position: absolute; /* Absolute Positionierung */
-  top: 60px; /* Abstand vom oberen Rand */
-  left: 120px; /* Abstand vom linken Rand */
+  width: 630px; /* Width of Cover */
+  height: 600px; /* Height of Cover */
+  position: absolute;
+  top: 60px;
+  left: 120px;
 }
 
 .cover-container img {
@@ -33,26 +33,26 @@ body {
   text-align: left;
   margin-bottom: 20px;
   margin-right: 200px;
-  position: absolute; /* Absolute Positionierung */
-  top: 130px; /* Abstand vom oberen Rand (Höhe der Mitte des Covers) */
-  left: 850px; /* Abstand vom linken Rand (Ende des Covers) */
+  position: absolute;
+  top: 130px;
+  left: 850px;
 }
 
 .album-name {
-  font-size: 44px;
+  font-size: 44px; /* Size of Album Name */
   font-weight: bold;
   margin-bottom: 10px;
   color: #BCA3C0;
 }
 
 .song-name {
-  font-size: 130px;
+  font-size: 130px; /* Size of Song Name */
   font-weight: bold;
   margin-bottom: 35px;
   color: #FDFFFA;
   max-height: 300px;
-  overflow: hidden; /* Verhindert das Überlaufen des Textes */
-  text-overflow: ellipsis; /* Fügt Auslassungszeichen hinzu, wenn Text überläuft */
+  overflow: hidden;
+  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -60,7 +60,7 @@ body {
 
 .artist-name {
   margin-bottom: 30px;
-  font-size: 52px;
+  font-size: 52px; /* Size of Artist Name */
   font-weight: bold;
   color: #FFFBFF;
 }
@@ -70,53 +70,15 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-top: auto; /* Bietet zusätzlichen Abstand nach oben */
-  margin-bottom: none; /* Fügt einen Abstand am unteren Rand hinzu */
-  flex-direction: column-reverse; /* Buttons und Regler werden umgedreht angeordnet */
+  margin-top: auto;
+  margin-bottom: none;
+  flex-direction: column-reverse;
 }
-
-.regler-container {
-  display: flex;
-  justify-content: space-between; /* Platziert die Regler an den gegenüberliegenden Enden */
-  width: 100%;
-}
-
-.volume-control {
-  margin-right: 20px;
-  width: 40px; /* Breite des Lautstärkereglers */
-  position: absolute; /* Absolute Positionierung */
-  top: 20px; /* Abstand vom oberen Rand */
-  right: 20px; /* Abstand vom rechten Rand */
-  height: 65%; /* Höhe des Lautstärkereglers */
-  display: flex; /* Flexbox-Layout */
-  align-items: flex-end; /* Ausrichtung der Elemente am unteren Rand */
-}
-
-.volume-control input[type="range"] {
-  width: 100%; /* Volle Breite des Lautstärkereglers */
-  height: 100%; /* Volle Höhe des Lautstärkereglers */
-  writing-mode: bt-lr; /* Vertikales Schreiben von unten nach oben */
-  -webkit-appearance: slider-vertical; /* Vertikaler Slider für WebKit-Browser */
-  accent-color: #222;
-  color: #322133;
-  background-color: #4CAF50; /* Grüne Hintergrundfarbe des Lautstärkereglers */
-}
-
-.volume-control input[type="range"]::-webkit-slider-thumb {
-  width: 20px; /* Breite des Daumens */
-  height: 20px; /* Höhe des Daumens */
-  -webkit-appearance: none; /* Standardaussehen des Daumens entfernen */
-  appearance: none;
-  background-color: #ff0000; /* Hintergrundfarbe des Daumens */
-  border-radius: 50%; /* Abgerundete Ecken des Daumens */
-  cursor: none; /* Zeiger beim Überfahren mit der Maus */
-}
-
 
 .buttons-wrapper {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 300px; /* Size of Background from Buttons */
 }
 
 .buttons-container {
@@ -126,7 +88,7 @@ body {
 }
 
 .buttons-container button {
-  font-size: 82px; /* Erhöht die Schriftgröße der Icons */
+  font-size: 82px; /* Size of Buttons */
   padding: 100px 40px;
   margin: auto auto;
   background: none;
@@ -141,17 +103,17 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #3F2C40; /* Hellgraue Hintergrundfarbe */
-  z-index: -1; /* Stellt sicher, dass die Hintergrundbox hinter den Buttons liegt */
+  background-color: #3F2C40;
+  z-index: -1;
 }
 
 .buttons-container button:hover {
-  color: #1FD662; /* Ändert die Farbe beim Überfahren mit der Maus */
+  color: #1FD662;
 }
 
 .progress-container {
   width: 100%;
-  height: 60px;
+  height: 60px; /* Size of Progress Bar */
   margin-bottom: 0px;
 }
 
@@ -170,6 +132,6 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background-color: #FFFDFF; /* Fortschrittsfarbe */
+  background-color: #FFFDFF;
   border-radius: 0;
 }

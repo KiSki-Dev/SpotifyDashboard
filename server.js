@@ -3,17 +3,17 @@ const session = require('express-session');
 const crypto = require('crypto');
 
 const app = express();
-const port = 8888;
+const port = 8888; // Port to listen on, make sure this matches to script.js
 
 let accessToken;
 
-// Use session middleware
 app.use(session({
   secret: '30b38f4babdd4201bda86bf577435be7',
   resave: false,
   saveUninitialized: true
 }));
 
+// Permissions the Webpage needs
 const allScopes = [
   'user-read-recently-played',
   'user-read-playback-position',
@@ -26,7 +26,6 @@ const allScopes = [
   'streaming',
 ];
 
-// Generate a random string for code verifier
 const generateRandomString = (length) => {
   const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   return Array.from(crypto.randomFillSync(new Uint8Array(length)))
@@ -34,7 +33,6 @@ const generateRandomString = (length) => {
     .join('');
 };
 
-// Generate code challenge from code verifier
 const sha256 = (plain) => {
   return crypto.createHash('sha256').update(plain).digest();
 };
@@ -56,10 +54,9 @@ app.get('/login', (req, res) => {
   const codeVerifier = generateRandomString(64);
   const codeChallenge = base64encode(sha256(codeVerifier));
 
-  // Save code verifier for later use
   req.session.codeVerifier = codeVerifier;
 
-  const clientId = '56045678e77a4c199b7ed3d25a399d67';
+  const clientId = '56045678e77a4c199b7ed3d25a399d67'; // Replace with your Client ID
   const redirectUri = 'http://localhost:8888/callback';
   const scope = allScopes.join(' ');
 
@@ -78,8 +75,8 @@ app.get('/callback', async (req, res) => {
   const { code } = req.query;
   const codeVerifier = req.session.codeVerifier;
 
-  const clientId = '56045678e77a4c199b7ed3d25a399d67';
-  const clientSecret = '30b38f4babdd4201bda86bf577435be7';
+  const clientId = '56045678e77a4c199b7ed3d25a399d67'; // Replace with your Client ID
+  const clientSecret = '30b38f4babdd4201bda86bf577435be7'; // Replace with your Client Secret
   const redirectUri = 'http://localhost:8888/callback';
 
   const tokenUrl = 'https://accounts.spotify.com/api/token';
@@ -101,11 +98,7 @@ app.get('/callback', async (req, res) => {
     const response = await fetch(tokenUrl, payload);
     const data = await response.json();
     accessToken = data.access_token;
-    console.log('Access Token:', data.access_token);
-    console.log('Token Type:', data.token_type);
-    console.log('Scope:', data.scope);
-    console.log('Expires In:', data.expires_in);
-    console.log('Refresh Token:', data.refresh_token);
+    console.log('Received new One-Hour Access Token');
 
     res.redirect('http://localhost:8080/');
   } catch (error) {
