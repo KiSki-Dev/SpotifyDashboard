@@ -8,7 +8,7 @@ const port = 8888; // Port to listen on, make sure this matches to script.js
 let accessToken;
 
 app.use(session({
-  secret: '30b38f4babdd4201bda86bf577435be7',
+  secret: 'CLIENT_SECRET', // Replace with your Client Secret
   resave: false,
   saveUninitialized: true
 }));
@@ -23,7 +23,7 @@ const allScopes = [
   'app-remote-control',
   'user-library-modify',
   'user-library-read',
-  'streaming',
+  'streaming', // If Login doesnt work, try removing this line
 ];
 
 const generateRandomString = (length) => {
@@ -56,7 +56,7 @@ app.get('/login', (req, res) => {
 
   req.session.codeVerifier = codeVerifier;
 
-  const clientId = '56045678e77a4c199b7ed3d25a399d67'; // Replace with your Client ID
+  const clientId = 'CLIENT_ID'; // Replace with your Client ID
   const redirectUri = 'http://localhost:8888/callback';
   const scope = allScopes.join(' ');
 
@@ -75,8 +75,8 @@ app.get('/callback', async (req, res) => {
   const { code } = req.query;
   const codeVerifier = req.session.codeVerifier;
 
-  const clientId = '56045678e77a4c199b7ed3d25a399d67'; // Replace with your Client ID
-  const clientSecret = '30b38f4babdd4201bda86bf577435be7'; // Replace with your Client Secret
+  const clientId = 'CLIENT_ID'; // Replace with your Client ID
+  const clientSecret = 'CLIENT_SECRET'; // Replace with your Client Secret
   const redirectUri = 'http://localhost:8888/callback';
 
   const tokenUrl = 'https://accounts.spotify.com/api/token';
