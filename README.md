@@ -57,3 +57,6 @@ chromium-browser --kiosk 'http://localhost:8080'
 - **Autorun this Script on Startup ([See this Article](https://www.tutorialspoint.com/run-a-script-on-startup-in-linux "See this Article"))**
 
 ------------
+
+## **Preview**
+[![Preview](https://i.imgur.com/vWPiA0T.jpeg "Preview")](https://i.imgur.com/vWPiA0T.jpeg "Preview")
